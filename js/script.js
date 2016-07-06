@@ -15,23 +15,45 @@ function searchToggle(obj,e){
     }
 
 //Search function
-function submitFn(obj,e){
+function search(obj,e){
     searchVal = $(obj).find('.search-input').val().trim();
-    searchRes = "You searched for: ";
+    searchResults = "You searched for: ";
+  	// clear results list and buttons
+  	$('#results').html('');
+		$('#buttons').html('');
+
+		// Get form input 
+		var q = $('#query').val();
+
     if(!searchVal.length){
-        searchRes = "You forgot to add some text!";
+      searchResults = "You forgot to add some text!";
     }
     else{
-        searchRes += "<b>" + searchVal + "</b>";
+      searchResults += "<b>" + searchVal + "</b>";
+        	// Run GET Request on API
+		$.get(
+			"https://www.googleapis.com/youtube/v3/search", {
+				part:'snippet,id',
+				q: q,
+				type:'video',
+				key:'YOUTUBE-API-KEY-HERE'},
+				
+				function(data) {
+					var nextPageToken = data.nextPageToken;
+					var previousPageToken = data.previousPageToken;
+					
+					console.log(data);
+
+				}
+			);
+
     }
 
-    $(obj).find('.result-container').html('<span>' + searchRes + '</span>');
+    $(obj).find('.result-container').html('<span>' + searchResults + '</span>');
     $(obj).find('.result-container').fadeIn(100);
 
     e.preventDefault();
 }
-
-
 
 
 

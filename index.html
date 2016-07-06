@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Yoogle</title>
+    <title>Yoogle.</title>
 
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -18,7 +18,7 @@
       <div id="heading" class="row">
         <div class="col-md-6 col-md-offset-3">
           <header>
-            <h1 id="title">Yoo<span>gle</span></h1>
+            <h1 id="title">Yoo<span>gle</span>.</h1>
           </header>
         </div>
       </div>
@@ -41,16 +41,18 @@
     <br>
     <div class="row">
       <div class="col-md-12">
-        <form id="search-form" onsubmit="submitFn(this, event);">
+        <form id="search-form" onsubmit="search(this, event);">
             <div class="w-search-bar">
                 <div class="input-holder">
-                    <input type="text" class="search-input" placeholder="Search YouTube videos here" />
+                    <input type="text" id="query" class="search-input" placeholder="Search YouTube videos here" />
                     <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
                 </div>
                 <span class="close" onclick="searchToggle(this, event);"></span>
                 <div class="result-container">
 
                 </div>
+                <ul id="results"></ul>
+                <div id="buttons"></div>
             </div>
         </form>
       </div>
