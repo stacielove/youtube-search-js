@@ -1,37 +1,30 @@
 
 <!DOCTYPE html>
 <html class="full" lang="en">
-<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Yoogle</title>
 
-    <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
-
 </head>
 
 <body>
-
-  <div class="layer">
-    
+  <div class="layer">  
     <div class="container text-center">
       <div id="heading" class="row">
         <div class="col-md-6 col-md-offset-3">
           <header>
             <h1 id="title">Yoo<span>gle</span></h1>
-            <p>Search all YouTube videos</p>
           </header>
         </div>
       </div>
-      <div class="row">
+
+<!-- Old Search Form -->
+<!-- <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <form id="search-form" name="search-form" onsubmit="return search()">
             <div class="form-group">
@@ -42,26 +35,37 @@
           <ul id="results"></ul>
           <div id="buttons"></div>
         </div>
+    </div> -->
+    <!-- End of old search form -->
+
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <form id="search-form" onsubmit="submitFn(this, event);">
+            <div class="w-search-bar">
+                <div class="input-holder">
+                    <input type="text" class="search-input" placeholder="Search YouTube videos here" />
+                    <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+                </div>
+                <span class="close" onclick="searchToggle(this, event);"></span>
+                <div class="result-container">
+
+                </div>
+            </div>
+        </form>
+      </div>
     </div>
-  </div>
+  </div> <!-- End of container -->
 
   <footer class="footer">
     <div class="container">
-    <p>Copyright &copy; 2016, All Rights Reserved</p>
+      <p>Copyright &copy; 2016, All Rights Reserved</p>
+    </div>
   </footer>
-    <!-- Navigation -->
-<!--     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
-            </div>
-            
-        </div>
-    </nav> -->
-  </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/script.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>
