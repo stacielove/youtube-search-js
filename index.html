@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>YouSearch</title>
+    <title>Yoogle</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -21,7 +21,34 @@
 <body>
 
   <div class="layer">
+    
+    <div class="container text-center">
+      <div id="heading" class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <header>
+            <h1 id="title">Yoo<span>gle</span></h1>
+            <p>Search all YouTube videos</p>
+          </header>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form id="search-form" name="search-form" onsubmit="return search()">
+            <div class="form-group">
+              <input type="search" id="query" class="search-field" placeholder="Search YouTube...">
+              <button type="submit" name="search-btn" id="search-btn" class="btn btn-default" value="">Search</button>
+            </div>
+          </form>
+          <ul id="results"></ul>
+          <div id="buttons"></div>
+        </div>
+    </div>
+  </div>
 
+  <footer class="footer">
+    <div class="container">
+    <p>Copyright &copy; 2016, All Rights Reserved</p>
+  </footer>
     <!-- Navigation -->
 <!--     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -34,6 +61,7 @@
   </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
