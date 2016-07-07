@@ -36,7 +36,7 @@ function search(obj,e){
 				part:'snippet,id',
 				q: q,
 				type:'video',
-				key:'SUPER-SECRET-YT-API-KEY'},
+				key:'AIzaSyAaPtipSvH1JsJgvi6aAcNFP00YCjehasQ'},
 				
 				function(data) {
 					var nextPageToken = data.nextPageToken;
@@ -52,7 +52,10 @@ function search(obj,e){
               $('#results').append(output);
 
           });
-
+          var buttons = getButtons(previousPageToken,nextPageToken);
+          // Display buttons
+          $('#buttons').append(buttons);
+				}
 			);
 
     }
@@ -79,7 +82,7 @@ function getOutput(item) {
 	'</div>'+
 	'<div class="col-md-8">'+
 	'<h3>'+title+'</h3>'+
-	'<small>by <span class="chanTitle">'+channelTitle+'</span>on '+videoDate+'</small>'+
+	'<small>by <span class="chanTitle">'+channelTitle+'</span> on '+videoDate+'</small>'+
 	'<p>'+description+'</p>'+
 	'</div>'+
 	'</li>'+
@@ -89,6 +92,21 @@ function getOutput(item) {
 
 }
 
+// Build buttons
+function getButtons(previousPageToken,nextPageToken) {
+	if(!previousPageToken) {
+		var btnOutput = '<div class="btn-group">'+
+										'<button type="button" id="next-button" class="btn btn-default" data-token="'+nextPageToken+'"'+
+										'onclick="nextPage();">Next</button></div>';
+	} else {
+		var btnOutput = '<div class="btn-group">'+
+										'<button type="button" id="prev-button" class="btn btn-default" data-token="'+previousPageToken+'"'+
+										'onclick="previousPage();">Previous</button>'
+										'<button type="button" id="next-button" class="btn btn-default" data-token="'+nextPageToken+'"'+
+										'onclick="nextPage();">Next</button></div>';
+	}
+	return btnOutput;
+}
 
 
 
