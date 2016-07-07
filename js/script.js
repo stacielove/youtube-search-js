@@ -36,7 +36,7 @@ function search(obj,e){
 				part:'snippet,id',
 				q: q,
 				type:'video',
-				key:'YOUTUBE-API-KEY-HERE'},
+				key:'SUPER-SECRET-YT-API-KEY'},
 				
 				function(data) {
 					var nextPageToken = data.nextPageToken;
@@ -44,7 +44,15 @@ function search(obj,e){
 					
 					console.log(data);
 
-				}
+          // Loop through items returned in data
+          // Build html output
+          $.each(data.items, function(i,item){
+              var output = getOutput(item);
+              // Display results
+              $('#results').append(output);
+
+          });
+
 			);
 
     }
@@ -54,6 +62,33 @@ function search(obj,e){
 
     e.preventDefault();
 }
+
+// Build output
+function getOutput(item) {
+	var videoId = item.id.videoId;
+	var title = item.snippet.title;
+	var description = item.snippet.description;
+	var thumb = item.snippet.thumbnails.high.url; //hq thumbnail
+	var channelTitle = item.snippet.channelTitle;
+	var videoDate = item.snippet.publishedAt;
+
+	// Build output string (all html goodness)
+	var output = '<li class="list-group-item">'+
+	'<div class="col-md-4">'+
+	'<img src="'+thumb+'">'+
+	'</div>'+
+	'<div class="col-md-8">'+
+	'<h3>'+title+'</h3>'+
+	'<small>by <span class="chanTitle">'+channelTitle+'</span>on '+videoDate+'</small>'+
+	'<p>'+description+'</p>'+
+	'</div>'+
+	'</li>'+
+	'';
+
+	return output
+
+}
+
 
 
 
