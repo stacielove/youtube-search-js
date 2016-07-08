@@ -24,7 +24,7 @@ body {
 
 /* Transparent grey overlay, starting top-left position 0 - 100% height and width */
 .layer {
-  /*background: rgba(0,0,0,.5);*/
+  background: rgba(0,0,0,.5); /*Without the background, unable to see close button*/
   position: absolute;
   top:0;
   left:0;
@@ -242,7 +242,7 @@ a {
   color:#B7B7B7;
 }
 
-/*New Results list??*/
+/*Results from API Get req*/
 
 .list-group-item {
   margin-bottom: 5px;
@@ -256,20 +256,21 @@ a {
 
 #results li {
   overflow: auto;
-  background: rgba(0,0,0,.5);
+  background: rgba(255,255,255,.5);
+  /*background: #fff;*/
   /*background: none;*/
   border: none;
-  color: #fff;
+  /*color: #fff;*/
 }
 
-#results li h3 {
+#results li h3, .chanTitle {
   color: #e1403d;
   font-weight: bold;
 }
 
-#results li .col-md-4 {
+/*#results li .col-md-4 {
   background: none;
-}
+}*/
 
 #results li img {
   /*width: 240px;*/
@@ -282,28 +283,16 @@ a {
   /*margin-left: -16px;*/
 }
 
-/*Results from API Get req*/
-/*#results li {
-  padding: 10px 0;
-  border-bottom: 1px #ccc dotted;
-  list-style: none;
-  overflow: auto;
+/*.chanTitle {
+  color: #e1403d;
+  font-weight: bold;
 }*/
-/*
-.list-left {
-  float: left;
-  width: 20%;
+
+#buttons {
+  position: relative;
+  bottom: 65px;
 }
-.list-left img {
-  width: 100%;
-  padding: 3px;
-  border: solid #ccc 1px; */
-/*}
-.list-right{
-  float:right;
-  width:78%;
-}
-*/
+
 .footer {
   position:absolute;
   bottom:0;
