@@ -24,7 +24,7 @@ body {
 
 /* Transparent grey overlay, starting top-left position 0 - 100% height and width */
 .layer {
-  /*background: rgba(0,0,0,.5);*/
+  background: rgba(0,0,0,.5); /*Without the background, unable to see close button*/
   position: absolute;
   top:0;
   left:0;
