@@ -1,3 +1,7 @@
+$(document).ready(function(){
+	$(".fancybox").fancybox();
+})
+
 //Searchbar handler - expands search input area by adding active class.
 function searchToggle(obj,e){
   var searchBar = $(obj).closest('.w-search-bar');      
@@ -36,7 +40,7 @@ function search(obj,e){
 			part:'snippet,id',
 			q: q,
 			type:'video',
-			key:'SUPER-SECRET-YT-API-KEY'},
+			key:'AIzaSyAaPtipSvH1JsJgvi6aAcNFP00YCjehasQ'},
 			
 			function(data) {
 				var nextPageToken = data.nextPageToken;
@@ -138,7 +142,7 @@ function prevPage(obj, e) {
 			q: q,
 			pageToken: token,
 			type:'video',
-			key:'AIzaSyAaPtipSvH1JsJgvi6aAcNFP00YCjehasQ'},
+			key:'SUPER-SECRET-YT-API-KEY'},
 			
 			function(data) {
 				var nextPageToken = data.nextPageToken;
@@ -179,10 +183,10 @@ function getOutput(item) {
 	// Build output string (all html goodness)
 	var output = '<li class="list-group-item">'+
 	'<div class="col-md-4">'+
-	'<img src="'+thumb+'">'+
+	'<a class="fancybox fancybox.iframe" href="http://www.youtube.com/embed/'+videoId+'"><img src="'+thumb+'"></a>'+
 	'</div>'+
 	'<div class="col-md-8">'+
-	'<h3>'+title+'</h3>'+
+	'<h3><a class="fancybox fancybox.iframe" href="http://www.youtube.com/embed/'+videoId+'">'+title+'</a></h3>'+
 	'<small>by <span class="chanTitle">'+channelTitle+'</span> on '+videoDate+'</small>'+
 	'<p>'+description+'</p>'+
 	'</div>'+
