@@ -40,7 +40,7 @@ function search(obj,e){
 			part:'snippet,id',
 			q: q,
 			type:'video',
-			key:'AIzaSyAaPtipSvH1JsJgvi6aAcNFP00YCjehasQ'},
+			key:'SUPER-SECRET-YT-API-KEY'},
 			
 			function(data) {
 				var nextPageToken = data.nextPageToken;
